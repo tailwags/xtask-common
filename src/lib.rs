@@ -80,7 +80,7 @@ const RUSTFLAGS: &[&str] = &[
 fn build() -> Result<()> {
     let sh = Shell::new()?;
     println!("Building release version...");
-    cmd!(sh, "cargo build --release")
+    cmd!(sh, "cargo build --release --locked")
         .env("RUSTFLAGS", RUSTFLAGS.join(" "))
         .run()?;
     Ok(())
